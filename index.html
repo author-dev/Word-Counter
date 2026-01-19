@@ -1,43 +1,466 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Word Counter Tool – Free Online</title>
-<meta name="description" content="Free online word counter tool to count words and characters instantly.">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-  <h1>Word Counter Tool</h1>
-  <p>Count words & characters instantly</p>
-</header>
-
-<main>
-  <textarea id="text" placeholder="Paste your text here..."></textarea>
-  <button onclick="countWords()">Count Words</button>
-  <div id="result"></div>
-
-  <!-- Adsterra Ad (later yahan lagay ga) -->
-
-  <section class="content">
-    <h2>What is Word Counter?</h2>
-    <p>This free word counter tool helps you count words and characters easily.</p>
-
-    <h2>How to Use</h2>
-    <p>Paste your text, click the button and get instant results.</p>
-
-    <h2>Benefits</h2>
-    <p>Useful for students, bloggers and writers.</p>
-  </section>
-</main>
-
-<footer>
-  <a href="about.html">About</a> |
-  <a href="contact.html">Contact</a> |
-  <a href="privacy-policy.html">Privacy Policy</a>
-</footer>
-
-<script src="script.js"></script>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="application-name" content="Words count">
+		<meta name="theme-color" content="#309aef">
+		<meta name="description" content="Want you to count words those you type?">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="title" content="Words counter">
+		<meta name="robots" content="index,follow">
+		<meta name="google" content="notranslate">
+		<meta name="author" content="Omar Al Sousli">
+		<meta name="copyright" content="Omar Al Sousli">
+		<meta name="keywords"
+			content="Words counter,letters counter,spaces counter,lines counter,characters counter,punctuations couunter,counter tool,text counter,numbers counter, arabic counter">
+		<title>Words Counter</title>
+		<link rel=icon href=pictures/tab-logo>
+		<link rel=stylesheet href=Css/Style.css>
+		<link rel=stylesheet href=Css/responsive.css>
+		<link rel=styleshhet herf="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap">
+	</head>
+	<!-- 
+		App name		: Words counter
+		Copyright		: osousli0@gmail.com / 2021
+		Start at 		: Wed Jan 06 2021 07:53:26
+		End at			: Wed Jan 07 2021 09:28:42
+		version			: 2.5.1
+		URL					: https://wordscounter.netlify.app
+	 -->
+	<body>
+		<header>
+			<div class=container>
+				<section>
+					<h1>Words<span> counter</span></h1>
+				</section>
+			</div>
+		</header>
+		<div class=container>
+			<article class=Counter-model id=counter-model>
+				<section class=main-results>
+					<div class="options">
+						<section>
+							<h4>Deleted words</h4>
+							<div class=select>
+								<h4 value=0><strong>Don't Delete</strong><span></span></h4>
+								<h4 value=1>Words with one letter</h4>
+								<h4 value=2>Words with two letter</h4>
+							</div>
+						</section>
+						<section>
+							<h4>Deleted characters</h4>
+							<div class=select>
+								<h4 value=0><strong>Don't Delete</strong><span></span></h4>
+								<h4 value=1>Delete spaces</h4>
+								<h4 value=2>Delete lines</h4>
+								<h4 value=3>Spaces & lines</h4>
+							</div>
+						</section>
+					</div>
+					<div class=results>
+						<div class=result-box>
+							<h5>Words</h5>
+							<h4 class=result>0</h4>
+							<figure class=loadingText>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figure>
+						</div>
+						<div class=result-box>
+							<h5>Letters</h5>
+							<h4 class=result>0</h4>
+							<figure class=loadingText>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figure>
+						</div>
+						<div class=result-box>
+							<h5>Spaces</h5>
+							<h4 class=result>0</h4>
+							<figure class=loadingText>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figure>
+						</div>
+						<div class=result-box>
+							<h5>Characters</h5>
+							<h4 class=result>0</h4>
+							<figure class=loadingText>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figure>
+						</div>
+						<div class=result-box>
+							<h5>Lines</h5>
+							<h4 class=result>0</h4>
+							<figure class=loadingText>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figure>
+						</div>
+						<div class=result-box>
+							<h5>Punctuation</h5>
+							<h4 class=result>0</h4>
+							<figure class=loadingText>
+								<div></div>
+								<div></div>
+								<div></div>
+							</figure>
+						</div>
+					</div>
+				</section>
+				<section class=text-area id=textarea>
+					<img src=pictures/copy.png alt=copy class=copy title="Copy to clip board">
+					<h4>
+						<img src=pictures/font-size.png alt="font size" id=size title='Change size'>
+						<img src=pictures/reset.png alt=reset id=reset title='Reset text'>
+						<img src=pictures/colors.png alt=colors id=color title='Change color'>
+					</h4>
+					<div class=text-transform close>
+						<h4 id=text-transform>&lt; Text transform ></h4>
+						<div>
+							<p><span class='active trans' value=normal></span> Normal</p>
+							<p><span class='trans' value=capitalize></span> Capitalize</p>
+						</div>
+						<div>
+							<p><span class='trans' value=lowercase></span> Lowercase</p>
+							<p><span class='trans' value=uppercase></span> Uppercase</p>
+						</div>
+					</div>
+					<hr>
+					<textarea id=content spellcheck="false"></textarea>
+					<hr>
+					<h5>Free counter tool for <span>writers</span>, all in one tool.</h5>
+				</section>
+			</article>
+			<div class=main-line>
+				<hr>
+				<h4>More information</h4>
+				<hr>
+			</div>
+			<div id=advance-section>
+				<article class=advance-section>
+					<img src=pictures/copy.png alt=copy class=copy title="Copy to clip board">
+					<section class=main-boxes>
+						<div class=results>
+							<div class=result-box>
+								<h5>English words</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Arabic words</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+						</div>
+						<div class=results>
+							<div class=result-box>
+								<h5>English letters</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Arabic letters</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+						</div>
+					</section>
+					<section class=results-boxes>
+						<div class=base-line>
+							<hr><span id=wordsSection>Words section</span>
+							<hr>
+						</div>
+						<div class=results>
+							<div class=result-box>
+								<h5>words</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Start with capital</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Start with small</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+						</div>
+						<div class=base-line>
+							<hr><span id=lettersSection>Letters section</span>
+							<hr>
+						</div>
+						<div class=results>
+							<div class=result-box>
+								<h5>Letters</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Upper case</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Lower case</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+						</div>
+					</section>
+					<section class=results-boxes>
+						<div class=base-line>
+							<hr><span id=numbersSection>Numbers section</span>
+							<hr>
+						</div>
+						<div class=results>
+							<div class=result-box>
+								<h5>Characters of numbers</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>odd numbers</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Even numbers</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+						</div>
+						<div class=base-line>
+							<hr><span id=valuesSection>Numbers section</span>
+							<hr>
+						</div>
+						<div class=results>
+							<div class=result-box>
+								<h5>Numbers</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Odd numbers</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Even numbers</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+						</div>
+					</section>
+					<section class=results-boxes>
+						<div class=base-line>
+							<hr><span id=numbersSection>Punctuation section</span>
+							<hr>
+						</div>
+						<div class=results>
+							<div class=result-box>
+								<h5>Punctuation</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Comma</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Period</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Semicolon</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Exclamation mark</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Question mark</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+							<div class=result-box>
+								<h5>Colon</h5>
+								<h4 class=result>0</h4>
+								<figure class=loadingText>
+									<div></div>
+									<div></div>
+									<div></div>
+								</figure>
+							</div>
+						</div>
+					</section>
+				</article>
+			</div>
+		</div>
+		<footer>
+			<div class=container>
+				<p>Created with <span>♥</span> By Omar Al Sousli.Copy right&copy; 2020 all rights reserved&reg;</p>
+				<address>
+					<a href=https://www.facebook.com/omar.al.sousli/ target=_blank><img src=pictures/facebook.png
+							alt='Facebook account' title='Facebook account'></a>
+					<a href=https://www.instagram.com/omar_al_sousli/ target=_blank><img src=pictures/instagram.png
+							alt='Instagram account' title='Instagram account'></a>
+					<a href=https://twitter.com/SousliAl target=_blank><img src=pictures/twitter.png alt='Twitter account'
+							title='Twitter account'></a>
+				</address>
+			</div>
+		</footer>
+		<section class="sticky">
+			<div class="background"></div>
+			<article class="loading">
+				<section class="fst-circle">
+					<div class="blue"></div>
+					<section class="sec-circle">
+						<div class="medium-blue"></div>
+						<section class="thr-circle">
+							<div class="light-blue"></div>
+						</section>
+					</section>
+				</section>
+			</article>
+		</section>
+		<aside>
+			<section>
+				<div>
+					<h4></h4>
+				</div>
+				<img src=pictures/dark.png title=Theme alt='Change theme' id=theme>
+			</section>
+			<section>
+				<a href='/html/armode'>
+					<h5>Arabic mode</h5>
+				</a>
+				<a href='/html/about-us-page' onclick='clear()'>
+					<h5>About program</h5>
+				</a>
+				<hr>
+				<a href=#wordsSection onclick=op()>
+					<h5>Words section</h5>
+				</a>
+				<a href=#lettersSection onclick=op()>
+					<h5>Letters section</h5>
+				</a>
+				<a href=#numbersSection onclick=op()>
+					<h5>Numbers section</h5>
+				</a>
+				<a href=#valuesSection onclick=op()>
+					<h5>Values section</h5>
+				</a>
+				<hr>
+				<a href='/html/tips-page' onclick='clear()'>
+					<h5>Tips page</h5>
+				</a>
+			</section>
+		</aside>
+		<div class=message>
+			Information copied
+		</div>
+		<script src=JS/script.js></script>
+	</body>
 </html>
+<!-- Mon Jan 18 2021 10:34:16 : سبحان الله، سبحانك اللهم وبحمدك أشهد أن لا إله إلا أنت أستغفرك و أتوب إاليك -->
